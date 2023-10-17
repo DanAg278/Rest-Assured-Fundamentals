@@ -1,0 +1,14 @@
+.classpath
+.project
+.gradle
+.idea
+.settings
+.DS_Store
+.cache
+.vscode
+*.iml
+gen_java
+build
+bin
+/target
+src/test/config.properties
