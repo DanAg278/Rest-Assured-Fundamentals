@@ -60,7 +60,8 @@ public class GpathJsonTests extends FootballConfig {
         String position = "Offence";
         String nationality = "England";
         Response response = get("teams/57");
-        Map<String, ?> playerOfCertainPosition = response.path("squad.findAll { it.position == '%s'}.find { it.nationality == '%s'}", position, nationality);
+        Map<String, ?> playerOfCertainPosition = response
+                .path("squad.findAll { it.position == '%s'}.find { it.nationality == '%s'}", position, nationality);
 
         System.out.println(playerOfCertainPosition);
 
@@ -71,7 +72,8 @@ public class GpathJsonTests extends FootballConfig {
         String position = "Offence";
         String nationality = "England";
         Response response = get("teams/57");
-        ArrayList<Map<String, ?>> allPlayerOfCertainPosition = response.path("squad.findAll { it.position == '%s'}.findAll { it.nationality == '%s'}", position, nationality);
+        ArrayList<Map<String, ?>> allPlayerOfCertainPosition = response
+                .path("squad.findAll { it.position == '%s'}.findAll { it.nationality == '%s'}", position, nationality);
 
         System.out.println(allPlayerOfCertainPosition);
 

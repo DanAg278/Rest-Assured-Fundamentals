@@ -8,6 +8,7 @@ public class VideoGame {
     private Integer reviewScore;
 
     private Integer id;
+
     public VideoGame() {
     }
 

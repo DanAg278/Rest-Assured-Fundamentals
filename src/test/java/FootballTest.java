@@ -24,8 +24,8 @@ public class FootballTest extends FootballConfig {
     public void getDetailsOfMultipleAreas() {
         String areaIds = "2076,2077,2080";
 
-        given()
-                .urlEncodingEnabled(false)
+        given().
+                urlEncodingEnabled(false)
                 .queryParam("areas", areaIds)
                 .when()
                 .get("/areas");
@@ -58,23 +58,22 @@ public class FootballTest extends FootballConfig {
 
     @Test
     public void getAllTeamData_DoCheckFirst() {
-        Response response =
-                given()
-                        .when()
-                        .get("teams/57")
-                        .then()
-                        .contentType(ContentType.JSON)
-                        .extract().response();
+        Response response = given()
+                .when()
+                .get("teams/57")
+                .then()
+                .contentType(ContentType.JSON)
+                .extract().response();
         String jsonResponseAsString = response.asString();
         System.out.println(jsonResponseAsString);
     }
 
     @Test
     public void extractHeaders() {
-        Response response =
-                get("teams/57")
-                        .then()
-                        .extract().response();
+        Response response = get("teams/57")
+                .then()
+                .extract()
+                .response();
 
         String contentTypeHeader = response.getContentType();
         System.out.println(contentTypeHeader);
@@ -91,10 +90,9 @@ public class FootballTest extends FootballConfig {
 
     @Test
     public void extractAllTeamsNames() {
-        Response response =
-                get("competitions/2021/teams")
-                        .then()
-                        .extract().response();
+        Response response = get("competitions/2021/teams")
+                .then()
+                .extract().response();
 
         List<String> teamNames = response.path("teams.name");
         for (String teamName : teamNames) {
