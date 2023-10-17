@@ -4,7 +4,9 @@ import io.restassured.RestAssured;
 import io.restassured.matcher.RestAssuredMatchers;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
+
 import static org.hamcrest.Matchers.lessThan;
+
 import objects.VideoGame;
 import org.junit.Test;
 
@@ -104,8 +106,9 @@ public class VideoGameTests extends VideoGameConfig {
                 .then()
                 .body(RestAssuredMatchers.matchesXsdInClasspath("VideoGameXSD.xsd"));
     }
+
     @Test
-    public void testVideoGameSchemaJson(){
+    public void testVideoGameSchemaJson() {
         given()
                 .pathParams("videoGameId", 5)
                 .accept("application/json")
@@ -116,7 +119,7 @@ public class VideoGameTests extends VideoGameConfig {
     }
 
     @Test
-    public void convertJsonToPojo(){
+    public void convertJsonToPojo() {
         Response response =
                 given()
                         .pathParams("videoGameId", 5)
@@ -128,13 +131,13 @@ public class VideoGameTests extends VideoGameConfig {
     }
 
     @Test
-    public void captureResponseTime(){
+    public void captureResponseTime() {
         long responseTime = get(VideoGameEndpoints.ALL_VIDEO_GAMES).time();
         System.out.println(responseTime);
     }
 
     @Test
-    public void assertOnResponseTime(){
+    public void assertOnResponseTime() {
         get(VideoGameEndpoints.ALL_VIDEO_GAMES)
                 .then().time(lessThan(2000L));
     }
