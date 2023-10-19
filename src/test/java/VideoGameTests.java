@@ -53,7 +53,7 @@ public class VideoGameTests extends VideoGameConfig {
                 .body(gameBodyXML)
                 .contentType("application/xml")
                 .accept("application/xml")
-                .when()
+        .when()
                 .post(VideoGameEndpoints.ALL_VIDEO_GAMES)
                 .then();
 
@@ -63,7 +63,7 @@ public class VideoGameTests extends VideoGameConfig {
     public void updateGame() {
         given()
                 .body(gameBodyJSON)
-                .when()
+        .when()
                 .put("videogame/3")
                 .then();
     }
